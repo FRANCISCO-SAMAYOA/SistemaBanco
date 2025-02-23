@@ -59,5 +59,24 @@ namespace CapaPresentacion
         {
 
         }
+
+        private void btnCuentas_Click(object sender, EventArgs e)
+        {
+            PanelSeleccion.Top = btnCuentas.Top; // Ajustar la posición de altura
+            PanelSeleccion.Height = btnCuentas.Height; // Ajustar el tamaño
+            PanelSeleccion.Visible = true; // hacer visible el boton
+
+            FrmCuentas frmCuen = new FrmCuentas();
+            if (this.PanelContenedor.Controls.Count > 0)
+            {
+                this.PanelContenedor.Controls.RemoveAt(0);
+                frmCuen.TopLevel = false;
+                frmCuen.Dock = DockStyle.Fill;
+                this.PanelContenedor.Controls.Add(frmCuen);
+                this.PanelContenedor.Tag = frmCuen;
+                frmCuen.Show();
+            }
+
+        }
     }
 }
